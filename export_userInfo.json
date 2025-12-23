@@ -1,0 +1,142 @@
+[
+  {
+    "id": "b5NQ9C169bgXGc49P3kf6IwXLSA3",
+    "hometown": "",
+    "education": "",
+    "viewsOnAlcohol": "",
+    "personalPriority": "",
+    "work": "",
+    "mobile": "",
+    "politicalViews": "",
+    "inspiredBy": "",
+    "importantInOthers": "",
+    "aboutMe": "",
+    "religion": "",
+    "favoriteBooks": "",
+    "viewsOnSmoking": "",
+    "favoriteMusic": "",
+    "favoriteMovies": "",
+    "favoriteQuote": "",
+    "activities": "",
+    "favoriteTVShow": "",
+    "favoriteGames": "",
+    "interests": "",
+    "displayName": "Maks",
+    "email": "maksym.karashevskyi@gmail.com",
+    "photoURL": "/avatar_2.png",
+    "personality": {
+      "temperament": "Phlegmatic - Relaxed & Peaceful",
+      "emotionalLogical": 89,
+      "introvertExtrovert": 31,
+      "politicalCompass": {
+        "y": 20,
+        "x": 45
+      },
+      "mbti": "INTP - The Architect"
+    }
+  },
+  {
+    "id": "jEwKxe1wmwh2zCAnUJzIhjtZJkv2",
+    "photoURL": "/avatar_4.png",
+    "hometown": "111",
+    "education": "111",
+    "viewsOnAlcohol": "",
+    "displayName": "blessed",
+    "personalPriority": "",
+    "work": "111",
+    "mobile": "111",
+    "politicalViews": "",
+    "inspiredBy": "",
+    "importantInOthers": "",
+    "aboutMe": "111",
+    "religion": "",
+    "favoriteBooks": "111",
+    "viewsOnSmoking": "",
+    "favoriteMusic": "111",
+    "favoriteMovies": "111",
+    "favoriteQuote": "111",
+    "activities": "111",
+    "favoriteTVShow": "111",
+    "favoriteGames": "111",
+    "interests": "111",
+    "email": ""
+  },
+  {
+    "id": "kyWfeKzcNiXG53Nv73lf0u3T6IZ2",
+    "hometown": "",
+    "education": "",
+    "viewsOnAlcohol": "",
+    "personalPriority": "",
+    "work": "",
+    "mobile": "",
+    "politicalViews": "",
+    "inspiredBy": "",
+    "importantInOthers": "",
+    "religion": "",
+    "favoriteBooks": "",
+    "viewsOnSmoking": "",
+    "favoriteMusic": "",
+    "favoriteMovies": "",
+    "favoriteQuote": "",
+    "activities": "",
+    "favoriteTVShow": "",
+    "favoriteGames": "",
+    "interests": "",
+    "email": "ukrainian.ozvuchka@gmail.com",
+    "aboutMe": "This is the text from \"About me\" of my account",
+    "displayName": "Maks",
+    "photoURL": "/avatar_2.png",
+    "friends": [
+      "syepmawJ4AfM93Qd0PzqDbNuGcR2"
+    ],
+    "personality": {
+      "introvertExtrovert": 50,
+      "emotionalLogical": 50,
+      "temperament": "",
+      "mbti": "",
+      "politicalCompass": {
+        "y": 33,
+        "x": 65
+      }
+    }
+  },
+  {
+    "id": "syepmawJ4AfM93Qd0PzqDbNuGcR2",
+    "hometown": "",
+    "education": "",
+    "viewsOnAlcohol": "",
+    "personalPriority": "",
+    "work": "",
+    "mobile": "",
+    "politicalViews": "",
+    "inspiredBy": "",
+    "importantInOthers": "",
+    "aboutMe": "",
+    "religion": "",
+    "favoriteBooks": "",
+    "viewsOnSmoking": "",
+    "favoriteMusic": "",
+    "favoriteMovies": "",
+    "favoriteQuote": "",
+    "activities": "",
+    "favoriteTVShow": "",
+    "favoriteGames": "",
+    "interests": "",
+    "email": "makarkarma21@gmail.com",
+    "displayName": "Makar Karma",
+    "photoURL": "/avatar_5.png",
+    "friends": [
+      "Ceof04pJDQfAkNbYnSHUDT8h6G03"
+    ],
+    "personality": {
+      "mbti": "INFJ - The Counselor",
+      "temperament": "Phlegmatic - Relaxed & Peaceful",
+      "introvertExtrovert": 51,
+      "emotionalLogical": 75,
+      "politicalCompass": {
+        "x": 40,
+        "y": 31
+      }
+    }
+  }
+]
