@@ -1,0 +1,619 @@
+@import "../../../assets/scss/variables";
+
+.dumy-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(145deg, darken($dark, 5%) 0%, $darker 100%);
+  min-height: calc(100vh - 120px);
+  color: $lightest;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba($blue-main, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba($yellow-main, 0.15) 0%, transparent 40%);
+    z-index: 0;
+  }
+}
+
+.controls-container {
+  background: rgba($darkest, 0.75);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($lightest, 0.15);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.sort-toggle-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.sort-toggle-button {
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, rgba($blue-main, 0.3) 0%, rgba($blue-main, 0.15) 100%);
+  color: $lightest;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba($blue-main, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($blue-main, 0.3);
+  }
+}
+
+.toggle-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.sort-options-dropdown {
+  position: absolute;
+  bottom: 90%;
+  left: 0;
+  background: rgba($darkest, 0.9);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 220px;
+  z-index: 10;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba($lightest, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-out;
+
+  button {
+    padding: 0.7rem 1rem;
+    background: rgba($darkest, 0.6);
+    color: $lightest;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+
+    &:hover {
+      background: rgba($blue-main, 0.3);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, $blue-main 0%, darken($blue-main, 10%) 100%);
+      box-shadow: 0 4px 12px rgba($blue-main, 0.3);
+    }
+  }
+}
+
+.category-filters {
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: rgba($lightest, 0.9);
+    }
+  }
+
+  .category-actions {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      background: rgba($darkest, 0.6);
+      color: $lightest;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba($blue-main, 0.3);
+      }
+
+      &:first-child {
+        background: rgba($blue-main, 0.25);
+      }
+
+      &:last-child {
+        background: rgba($yellow-main, 0.25);
+      }
+    }
+  }
+}
+
+.category-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.category-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 32px;
+  user-select: none;
+  color: rgba($lightest, 0.95);
+  transition: all 0.2s ease;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: transparent;
+    border: 2px solid rgba($lightest, 0.6);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .checkbox-custom {
+    background-color: $blue-main;
+    border-color: $blue-main;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  &:hover {
+    color: $lightest;
+
+    .checkbox-custom {
+      border-color: rgba($lightest, 0.9);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+
+  .post {
+    background: rgba($darkest, 0.7);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba($lightest, 0.08);
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 18px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba($blue-main, 0.25);
+      border-color: rgba($blue-main, 0.4);
+    }
+  }
+}
+
+.no-posts-message {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.3rem;
+  color: rgba($lightest, 0.8);
+  background: rgba($darkest, 0.6);
+  border-radius: 16px;
+  margin: 2rem 0;
+  backdrop-filter: blur(8px);
+  border: 1px dashed rgba($lightest, 0.15);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
+
+  button {
+    padding: 0.8rem 2rem;
+    background: rgba($darkest, 0.7);
+    color: $lightest;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba($lightest, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: rgba($blue-main, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba($blue-main, 0.3);
+    }
+
+    &:disabled {
+      background: rgba($darker, 0.5);
+      color: rgba($lightest, 0.5);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba($lightest, 0.9);
+  }
+}
+
+.add-post-button {
+  position: fixed;
+  bottom: 20%;
+  right: 3rem;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, $yellow-main 0%, darken($yellow-main, 10%) 100%);
+  color: $darkest;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 
+    0 12px 30px rgba($yellow-main, 0.4),
+    0 0 0 5px rgba($yellow-main, 0.25);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(white, 0.1) 0%,
+      rgba(white, 0) 50%
+    );
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 
+      0 18px 40px rgba($yellow-main, 0.5),
+      0 0 0 6px rgba($yellow-main, 0.3);
+
+    &::before {
+      transform: rotate(30deg) translateX(50%);
+    }
+  }
+
+  .plus-icon {
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1200px) {
+  .posts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .dumy-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .category-checkboxes {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .dumy-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .category-checkboxes {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.sort-filter-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sort-toggle-button,
+.filter-toggle-button {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.toggle-arrow {
+  transition: transform 0.3s ease;
+}
+
+.toggle-arrow.open {
+  transform: rotate(180deg);
+}
+
+.controls-container {
+  background: rgba($darkest, 0.75);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($lightest, 0.15);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+
+  .filter-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .sort-toggle-container,
+  .filter-toggle-container {
+    padding-top: 25px;
+    position: relative;
+    flex: 1;
+  }
+
+  .sort-toggle-button,
+  .filter-toggle-button {
+
+    width: 100%;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, rgba($blue-main, 0.3) 0%, rgba($blue-main, 0.15) 100%);
+    color: $lightest;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba($blue-main, 0.2);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba($blue-main, 0.3);
+    }
+  }
+
+  .sort-options-dropdown,
+  .filter-options-dropdown {
+    position: absolute;
+    bottom: 90%;
+    left: 0;
+    right: 0;
+    background: rgba($darkest, 0.9);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba($lightest, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .filter-options-dropdown {
+    width: 300px;
+    right: auto;
+    left: 0;
+
+    .category-checkboxes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.toggle-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.category-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 32px;
+  user-select: none;
+  color: rgba($lightest, 0.95);
+  transition: all 0.2s ease;
+
+  .checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: transparent;
+    border: 2px solid rgba($lightest, 0.6);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .checkbox-custom {
+    background-color: $blue-main;
+    border-color: $blue-main;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  &:hover {
+    color: $lightest;
+
+    .checkbox-custom {
+      border-color: rgba($lightest, 0.9);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.category-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  button {
+    padding: 0.5rem 1rem;
+    background: rgba($darkest, 0.6);
+    color: $lightest;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba($blue-main, 0.3);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .controls-container {
+    padding: 1.5rem;
+  }
+
+  .add-post-button {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    right: 2rem;
+  }
+}

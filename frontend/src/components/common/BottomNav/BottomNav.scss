@@ -1,0 +1,148 @@
+@import '../../../assets/scss/variables.scss';
+.bottomnav {
+  background-color: $dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid $darkest;
+
+  &__center {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__link {
+    color: $lightest;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: $yellow-main;
+      transform: scale(1.1); 
+    }
+  }
+
+  &__music-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  &__music {
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(15deg); // Ajoute une légère rotation au survol
+    }
+  }
+
+  &__music-icon {
+    width: 28px; // Augmente légèrement la taille
+    height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); // Ajoute une ombre portée
+  }
+
+  &__volume-slider {
+    width: 100px; // Augmente légèrement la largeur
+    height: 6px;
+    appearance: none;
+    background: linear-gradient(90deg, $yellow-main, $dark); // Dégradé pour la barre
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0;
+    transition: opacity 0.3s ease;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      background: $lightest;
+      border: 2px solid $yellow-main;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2); // Agrandit légèrement le curseur au survol
+      }
+    }
+  }
+}
+
+.bottomnav__music-container {
+  display: flex;
+  align-items: center;
+  position: relative; // Nécessaire pour positionner la barre de volume absolument
+}
+
+.bottomnav__volume-slider {
+  position: absolute; // Positionne la barre de volume par rapport au conteneur
+  left: 40px; // Ajustez cette valeur pour qu'elle soit juste à droite de l'icône
+  top: 50%; // Centre verticalement
+  transform: translateY(-50%); // Ajuste pour centrer parfaitement
+  width: 100px;
+  height: 6px;
+  appearance: none;
+  background: linear-gradient(90deg, $yellow-main, $dark);
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0; // Masque la barre par défaut
+  transition: opacity 0.3s ease;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: $lightest;
+    border: 2px solid $yellow-main;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.bottomnav__music-container:hover .bottomnav__volume-slider {
+  opacity: 1; // Affiche la barre de volume lorsque l'utilisateur survole le conteneur
+}
+
+@media (max-width: 600px) {
+  .bottomnav__center {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .bottomnav__link {
+    font-size: 0.85rem;
+    padding-top: 15px;
+  }
+
+  .bottomnav__music-container {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 12px;
+  }
+
+  .bottomnav__volume-slider {
+    position: static;
+    opacity: 1;
+    width: 80%;
+    margin-left: 8px;
+    transform: none;
+  }
+}

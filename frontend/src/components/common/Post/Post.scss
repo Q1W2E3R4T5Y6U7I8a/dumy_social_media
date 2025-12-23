@@ -1,0 +1,72 @@
+@import '../../../assets/scss/variables';
+
+.post-container {
+  display: block;
+  margin: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: $dark;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  .post-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+  }
+
+  .title-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+  }
+
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+  }
+
+  .stat-text {
+    color: white;
+    font-size: 14px;
+  }
+}

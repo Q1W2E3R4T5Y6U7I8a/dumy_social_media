@@ -1,0 +1,61 @@
+@import '../../../assets/scss/variables';
+
+.conversation-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+  
+    .messages-list {
+      margin-bottom: 2rem;
+  
+      .message {
+        background: $lightest;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+  
+        .message-actions {
+          display: flex;
+          gap: 0.5rem;
+  
+          button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background: $blue-main;
+            color: white;
+            cursor: pointer;
+  
+            &:hover {
+              background: darken($blue-main, 10%);
+            }
+          }
+        }
+      }
+    }
+  
+    .message-input {
+      display: flex;
+      gap: 1rem;
+  
+      textarea {
+        flex: 1;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid $darker;
+      }
+  
+      button {
+        padding: 1rem;
+        background: $blue-main;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+  
+        &:hover {
+          background: darken($blue-main, 10%);
+        }
+      }
+    }
+  }

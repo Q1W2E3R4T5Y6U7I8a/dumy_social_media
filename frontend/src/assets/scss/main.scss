@@ -1,0 +1,6 @@
+.main-content {
+    padding-top: 60px; /* Matches the height of the NavBar */
+    padding-bottom: 60px; /* Matches the height of the BottomNav */
+    min-height: calc(100vh - 120px); /* Ensures the content fills the remaining space */
+    box-sizing: border-box; /* Includes padding in the height calculation */
+  }

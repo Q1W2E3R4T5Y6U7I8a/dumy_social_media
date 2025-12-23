@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"  # Keep React dev server for hot reload
+    environment:
+      REACT_APP_FIREBASE_API_KEY: AIzaSyBD8Cikz2sD1bgRy1oPLjTltDbqBlJdUIE
+      REACT_APP_FIREBASE_AUTH_DOMAIN: dumy-9ee0a.firebaseapp.com
+      REACT_APP_FIREBASE_PROJECT_ID: dumy-9ee0a
+      REACT_APP_FIREBASE_STORAGE_BUCKET: dumy-9ee0a.appspot.com
+      REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 816403449823
+      REACT_APP_FIREBASE_APP_ID: 1:816403449823:web:639e0056e8df9055baa66a
+    volumes:
+      - ./frontend:/app:rw
+      - /app/node_modules
+    stdin_open: true  # For React dev server
+    tty: true
+
+# No volumes needed since we're not using PostgreSQL

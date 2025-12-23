@@ -1,0 +1,99 @@
+@import '../../../assets/scss/variables.scss';
+
+.music-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, $lightest, lighten($lightest, 10%));
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: $blue-main;
+  }
+
+  .current-track {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $dark;
+
+    p {
+      background: $lightest;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+
+    .stop-button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: $red-main;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background: darken($red-main, 10%);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .music-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: $lightest;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      p {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $dark;
+      }
+
+      button {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+
+        &:first-of-type {
+          background: $blue-main;
+          color: white;
+
+          &:hover {
+            background: darken($blue-main, 10%);
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}

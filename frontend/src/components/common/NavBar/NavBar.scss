@@ -1,0 +1,80 @@
+@import '../../../assets/scss/variables';
+.navbar {
+  background-color: $lightest;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+  border-bottom: 3px solid $darkest; 
+
+  height: 60px;
+  position: fixed;
+  top: 0;
+  z-index: 1200;  
+  width: 100%;
+
+  &__left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+
+    img {
+      padding-left: 25%;
+  
+    }
+  }
+
+  &__right {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    height: 20px;
+  }
+
+  &__center {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__logo-image {
+    max-height: 40px;
+  }
+
+  &__link {
+    color: $darkest;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      color: $blue-main; 
+    }
+  }
+
+  &__user-icon {
+    margin-left: auto;
+    font-size: 1.5rem;
+  }
+}
+
+.navbar__profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; // Makes the image circular
+  object-fit: cover;  // Ensures the image fits within the circle
+  padding-right: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding-left: 15px
+  }
+  .navbar__left {
+    display: none;
+  }
+  .navbar__right {
+    padding-right: 15px;
+  }
+}

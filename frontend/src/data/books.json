@@ -1,0 +1,9 @@
+[
+    {
+      "id": 1,
+      "title": "Sample Book",
+      "description": "This is a sample book description.",
+      "image": "https://example.com/book1.jpg",
+      "userId": "user1"
+    }
+  ]
